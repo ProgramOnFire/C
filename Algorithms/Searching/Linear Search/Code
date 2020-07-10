@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+int linear(int a[],int k,int n){
+    int i=0;
+    while(i<n && a[i]!=k){
+        i++;}
+    if(i==n)
+        return 0;
+    else
+        return 1;
+}
+int main(){
+    int i,*a,key,n;
+    printf("Number of element and key:");
+    scanf("%d%d",&n,&key);
+    a=(int*)malloc(sizeof(int)*n);
+    printf("Enter the elements:");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",(a+i));
+    }
+    if(linear(a,key,n))
+        printf("Key found");
+    else
+        printf("Key not here");
+}
