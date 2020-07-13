@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdbool.h>
+void bubble(int a[],int n){
+int i,j,t;
+bool e=false;
+for(i=0;i<n-1;i++)
+{
+    for(j=0;j<n-i-1;j++)
+    {
+        if(a[j]>a[j+1])
+        {
+        e=true;
+        t=a[j];
+        a[j]=a[j+1];
+        a[j+1]=t;
+        }
+    }
+    if(e==false)
+        break;
+}
+}
+int main(){
+int arr[]={2,4,5,7,6,1};
+int i;
+printf("After sorting:");
+bubble(arr,6);
+for(i=0;i<6;i++)
+printf("%d ",arr[i]);
+return 1;
+}
