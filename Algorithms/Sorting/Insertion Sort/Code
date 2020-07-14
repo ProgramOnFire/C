@@ -1,0 +1,24 @@
+#include<stdio.h>
+void insertion(int a[],int n){
+int i,j,t;
+for(i=1;i<n;i++)
+{
+ j=i-1;
+ t=a[i];
+ while(a[j]>t && j>=0)
+ {
+     a[j+1]=a[j];
+     j--;
+ }
+ a[j+1]=t;
+}
+}
+int main(){
+int arr[]={2,4,5,7,6,1};
+int i;
+printf("After sorting:");
+insertion(arr,6);
+for(i=0;i<6;i++)
+printf("%d ",arr[i]);
+return 1;
+}
