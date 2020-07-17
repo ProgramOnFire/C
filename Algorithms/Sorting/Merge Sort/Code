@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void merge(int a[],int b[],int c[],int n)
+{
+int k=0,i=0,j=0;
+while(i<(n/2) && j<(n-n/2))
+{
+if(b[i]>c[j])
+a[k++]=c[j++];
+else
+a[k++]=b[i++];
+}
+if(i==n/2)
+{
+memcpy(a+i+j,c+j,sizeof(int)*(n-i-j));
+}
+else if(j==(n-n/2))
+{
+memcpy(a+i+j,b+i,sizeof(int)*(n-i-j));
+}
+
+}
+void mergesort(int a[],int n){
+if(n>1){
+int *b=(int *)malloc(sizeof(int)*(n/2));
+int *c=(int *)malloc(sizeof(int)*(n-n/2));
+memcpy(b,a,sizeof(int)*sizeof(n/2));
+memcpy(c,a+n/2,sizeof(int)*sizeof(n-n/2));
+mergesort(b,n/2);
+mergesort(c,n-n/2);
+merge(a,b,c,n);
+}
+}
+void main(){
+int a[]={1,5,2,4,3,9};
+int n=6,i,j;
+printf("Before sorting: ");
+for(i=0;i<n;i++)
+printf("%d ",a[i]);
+mergesort(a,n);
+printf("\n");
+printf("After sorting: ");
+for(i=0;i<n;i++)
+printf("%d ",a[i]);
+}
