@@ -1,10 +1,10 @@
 <b>QuickSort</b><br>
-Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways.
-
+Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways.<br>
 Always pick first element as pivot.<br>
 Always pick last element as pivot.<br>
 Pick a random element as pivot.<br>
 Pick median as pivot.<br>
+
 The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x. All this should be done in linear time.
 
 <b>Pseudo Code for recursive QuickSort function :</b><br>
@@ -21,7 +21,7 @@ quickSort(arr[], low, high)<br>
         quickSort(arr, pi + 1, high); // After pi<br>
     }<br>
 }<br>
-<img src="QuickSort2.png">
+<img src="QuickSort2.png"><br>
 <b>Partition Algorithm</b><br>
 There can be many ways to do partition.Refer screenshot feom textbook.<br>
 
@@ -31,7 +31,7 @@ T(n) = T(k) + T(n-k-1) + \theta(n)<br>
 The first two terms are for two recursive calls, the last term is for the partition process. k is the number of elements which are smaller than pivot.<br>
 The time taken by QuickSort depends upon the input array and partition strategy. Following are three cases.<br>
 
-<b>Worst Case:</br> The worst case occurs when the partition process always picks greatest or smallest element as pivot. If we consider above partition strategy where last element is always picked as pivot, the worst case would occur when the array is already sorted in increasing or decreasing order. Following is recurrence for worst case.
+<b>Worst Case:</b></br> The worst case occurs when the partition process always picks greatest or smallest element as pivot. If we consider above partition strategy where last element is always picked as pivot, the worst case would occur when the array is already sorted in increasing or decreasing order. Following is recurrence for worst case.
 
 
  T(n) = T(0) + T(n-1) + \theta(n)<br>
@@ -45,18 +45,20 @@ The solution of above recurrence is \theta(n^2).<br>
 The solution of above recurrence is \theta(nLogn). It can be solved using case 2 of Master Theorem.<br>
 
 <b>Average Case:</b><br>
+
 To do average case analysis, we need to consider all possible permutation of array and calculate time taken by every permutation which doesn’t look easy.<br>
 We can get an idea of average case by considering the case when partition puts O(n/9) elements in one set and O(9n/10) elements in other set. Following is recurrence for this case.
 
  T(n) = T(n/9) + T(9n/10) + \theta(n)<br>
 Solution of above recurrence is also O(nLogn)<br>
 
-Although the worst case time complexity of QuickSort is O(n2) which is more than many other sorting algorithms like Merge Sort and Heap Sort, QuickSort is faster in practice, because its inner loop can be efficiently implemented on most architectures, and in most real-world data. QuickSort can be implemented in different ways by changing the choice of pivot, so that the worst case rarely occurs for a given type of data. However, merge sort is generally considered better when data is huge and stored in external storage.
+Although the worst case time complexity of QuickSort is O(n2) which is more than many other sorting algorithms like Merge Sort and Heap Sort, QuickSort is faster in practice, because its inner loop can be efficiently implemented on most architectures, and in most real-world data. QuickSort can be implemented in different ways by changing the choice of pivot, so that the worst case rarely occurs for a given type of data. However, merge sort is generally considered better when data is huge and stored in external storage.<br>
 
 Is QuickSort <b>stable</b>?<br>
 The default implementation is not stable. However any sorting algorithm can be made stable by considering indexes as comparison parameter.<br>
 Is QuickSort <b>In-place</b>?<br>
 As per the broad definition of in-place algorithm it qualifies as an in-place sorting algorithm as it uses extra space only for storing recursive function calls but not for manipulating the input.<br>
+
 <b>Why Quick Sort is preferred over MergeSort for sorting Arrays</b><br>
 Quick Sort in its general form is an in-place sort (i.e. it doesn’t require any extra storage) whereas merge sort requires O(N) extra storage, N denoting the array size which may be quite expensive. Allocating and de-allocating the extra space used for merge sort increases the running time of the algorithm. Comparing average complexity we find that both type of sorts have O(NlogN) average complexity but the constants differ. For arrays, merge sort loses due to the use of extra O(N) storage space.
 
