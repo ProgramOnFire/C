@@ -15,4 +15,14 @@ point p = { .x = 3, .y = 4};<br>
 If you are initializing an array of structs, these two techniques work particularly well together (an example of composability ). For example, we could declare and initialize an array of three points:<br>
 point myPoints[] = { {.x = 3, .y = 4},
                      {.x = 5, .y = 7},
-                     {.x = 9, .y = 2} };
+                     {.x = 9, .y = 2} };<br>
+                     
+Passing Arrays as Parameters<br>
+Method 1<br>
+int myFunction(int * myArray, int size) {<br>
+  // whatever code...<br>
+}<br>
+Method 2<br>
+int myFunction(int myArray[], int size) {<br>
+  // whatever code...<br>
+}<br>
