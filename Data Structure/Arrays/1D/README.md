@@ -26,3 +26,4 @@ Method 2<br>
 int myFunction(int myArray[], int size) {<br>
   // whatever code...<br>
 }<br>
+when array index out of bound occurs the behavior of compiler is undefined.<br>
