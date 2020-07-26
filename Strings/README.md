@@ -25,3 +25,19 @@ The strcpy() function also returns the copied string.
 When you use strcpy(), the size of the destination string should be large enough to store the copied string. Otherwise, it may result in undefined behavior.
 
 strdup()
+Syntax : char *strdup(const char *s);
+This function returns a pointer to a null-terminated byte string, which is a duplicate of the string pointed to by s. The memory obtained is done dynamically using malloc and hence it can be freed using free().
+It returns a pointer to the duplicated string s.
+
+memcpy():
+// Copies "numBytes" bytes from address "from" to address "to"
+void * memcpy(void *to, const void *from, size_t numBytes);
+1) memcpy() doesn’t check for overflow or \0
+2) memcpy() leads to problems when source and destination addresses overlap.
+
+memmove():
+memmove() is used to copy a block of memory from a location to another. It is declared in string.h
+// Copies "numBytes" bytes from address "from" to address "to"
+void * memmove(void *to, const void *from, size_t numBytes);
+memcpy() simply copies data one by one from one location to another. On the other hand memmove() copies the data first to an intermediate buffer, then from buffer to destination.
+
